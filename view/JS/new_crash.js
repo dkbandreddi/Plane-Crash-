@@ -45,6 +45,7 @@ async function createNewCrash(e) {
   })
     .then((res) => res.json())
     .then((data) => {
-      table_div.innerHTML = data.msg;
+      const crash = document.getElementById("crash");
+      crash.innerHTML = "Crash has been successfully created";
     });
 }

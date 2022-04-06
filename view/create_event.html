@@ -25,11 +25,11 @@
       </h1>
     </div>
     <hr />
-    <div class="container p-5 m-5">
+    <div class="container p-5 m-5" id="crash">
       <form onsubmit="createNewCrash()">
         <div class="mb-3">
           <label for="date" class="form-label">Date</label>
-          <input type="date" class="form-date form-control" id="date" />
+          <input type="date" class="form-date form-control" id="date" required/>
         </div>
         <div class="mb-3">
           <label for="time" class="form-label">Time</label>
@@ -38,6 +38,7 @@
             class="form-text form-control"
             id="time"
             placeholder="HH:MM"
+            required
           />
         </div>
         <div class="mb-3">
@@ -47,6 +48,7 @@
             class="form-text form-control"
             id="city"
             placeholder="City"
+            required
           />
         </div>
         <div class="mb-3">
@@ -75,6 +77,7 @@
             class="form-text form-control"
             id="flightNo"
             placeholder="Flight Number"
+            required
           />
         </div>
         <div class="mb-3">
@@ -84,6 +87,7 @@
             class="form-text form-control"
             id="route"
             placeholder="Route"
+            required
           />
         </div>
         <div class="mb-3">
@@ -93,6 +97,7 @@
             class="form-text form-control"
             id="aircraftType"
             placeholder="Aircraft Type"
+            required
           />
         </div>
         <div class="mb-3">
@@ -104,6 +109,7 @@
             class="form-text form-control"
             id="registration"
             placeholder="Registration Number"
+            required
           />
         </div>
         <div class="mb-3">
@@ -113,6 +119,7 @@
             class="form-text form-control"
             id="cnIn"
             placeholder="CnIn"
+            required
           />
         </div>
         <div class="mb-3">
@@ -122,6 +129,7 @@
             class="form-text form-control"
             id="aboard"
             placeholder="Aboard"
+            required
           />
         </div>
         <div class="mb-3">
@@ -131,6 +139,7 @@
             class="form-text form-control"
             id="fatalities"
             placeholder="Fatalities"
+            required
           />
         </div>
         <div class="mb-3">

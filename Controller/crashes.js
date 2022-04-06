@@ -104,15 +104,13 @@ module.exports.getGeolocation = async (req, res) => {
 };
 
 module.exports.postCrashInfo = async (req, res) => {
-  console.log(req.body);
   let new_crash = new Crashes(req.body);
-  console.log(new_crash);
   var valid = await new_crash.isValid();
   if (valid) {
     let crash = await getCrashCollection();
     crash.insertOne(new_crash, (err, obj) => {
       if (err) throw `Encountered an error when inserting data... ${err}`;
-      res.send({ msg: "Crash information posted." });
+      res.send(obj);
     });
   } else {
     res.send("Error. Crash not inserted in the database due to invalid data.");
@@ -139,7 +137,6 @@ module.exports.deleteCrash = async (req, res) => {
 
 module.exports.updateCrash = async (req, res) => {
   let new_crash = new Crashes(req.body);
-  console.log(req.body);
   let id = new mongo.ObjectId(req.params.id);
   var valid = await new_crash.isValid();
   if (valid) {
