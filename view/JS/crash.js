@@ -15,7 +15,7 @@ const fatalities = document.getElementById("fatalities");
 const ground = document.getElementById("ground");
 const summary = document.getElementById("summary");
 const cnIn = document.getElementById("cnIn");
-
+// used to fetch the crash record information by the id.
 fetch(`/crashes/${crash_id}`)
   .then((response) => response.json())
   .then((crash) => {
@@ -35,7 +35,7 @@ fetch(`/crashes/${crash_id}`)
     summary.innerText = crash.summary;
     cnIn.innerText = crash.cnIn;
   });
-
+// this function is used to delete the crash information from the database
 async function deleteCrashInfo() {
   const table_div = document.getElementById("table");
   fetch(`/crashes/${crash_id}`, {

@@ -1,3 +1,4 @@
+<!-- This is our main HTML page -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,8 +20,8 @@
 
     <!-- Plotly JS -->
     <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>
-
-    <title>Plane Crash</title>
+    <!-- This is the title of the webpage -->
+    <title>Plane Crash</title>          
   </head>
   <body>
     <div class="container">
@@ -30,6 +31,7 @@
     </div>
     <hr />
     <div class="container text-center">
+      <!-- We create a button which allows us to create a new crash -->
       <a href="./create_event.html" class="btn btn-primary" target="_blank"
         >Create New Crash</a
       >
@@ -42,16 +44,18 @@
     <div class="container p-5" id="crashes"></div>
     <div class="container pb-5 text-center">
     
-      &copy; All rights reserved (2022) 
+      &copy; All rights reserved (2022) by Group 14 
     </div>
     <hr />
     <div class="container">
+      <!-- we create a div class to add the fatalities graph-->
       <h1 class="display-3 p-5 text-center">
         Yearly Plane Crash Fatalities Graph
       </h1>
     </div>
     <hr />
     <div class="container" id="fatalities-plot"></div>
+    <!-- we create a div class to add the crashes graph-->
     <div class="container">
       <h1 class="display-3 p-5 text-center">Yearly Plane Crash Count Graph</h1>
     </div>

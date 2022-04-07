@@ -1,3 +1,4 @@
+<!-- This HTML page is shown when the user clicks a particular crash  -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,11 +28,13 @@
     <hr />
     <div class="container d-flex justify-content-end" style="margin-right: 10%">
       <a class="btn btn-primary m-1" id="update">Update</a>
+      <!-- this button on click deletes the record from the database -->
       <button class="btn btn-danger m-1" onclick="deleteCrashInfo()">
         Delete
       </button>
     </div>
     <div class="container p-5" id="table">
+      <!-- we create a table to add the elements of the crash into the table  -->
       <table class="table table-dark">
         <tbody>
           <tr>

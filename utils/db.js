@@ -8,6 +8,7 @@ async function connectDB() {
     await client.connect();
     db = client.db("PlaneCrash");
     console.log("DB connection established successfully");
+    console.log("Visit http://localhost:8080")
   } catch (err) {
     throw `There was an error when connecting to DB... ${err}`;
   }

@@ -1,3 +1,4 @@
+<!-- This page is used to create a crash a crash event -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,12 +27,14 @@
     </div>
     <hr />
     <div class="container p-5 m-5" id="crash">
+      <!-- when the form is submitted it is redirected to createnewcrash() -->
       <form onsubmit="createNewCrash()">
         <div class="mb-3">
           <label for="date" class="form-label">Date</label>
           <input type="date" class="form-date form-control" id="date" required/>
         </div>
         <div class="mb-3">
+          <!-- label to add time into the form -->
           <label for="time" class="form-label">Time</label>
           <input
             type="text"
@@ -42,6 +45,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add city into the form -->
           <label for="city" class="form-label">City</label>
           <input
             type="text"
@@ -52,6 +56,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add country into the form -->
           <label for="country" class="form-label">Country</label>
           <input
             type="text"
@@ -62,6 +67,7 @@
         </div>
 
         <div class="mb-3">
+          <!-- label to add operator into the form -->
           <label for="operator" class="form-label">Operator</label>
           <input
             type="text"
@@ -71,6 +77,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add flight number into the form -->
           <label for="flightNo" class="form-label">Flight Number</label>
           <input
             type="text"
@@ -81,6 +88,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add route into the form -->
           <label for="route" class="form-label">Route</label>
           <input
             type="text"
@@ -91,6 +99,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add aircraft type into the form -->
           <label for="aircraftType" class="form-label">Aircraft Type</label>
           <input
             type="text"
@@ -101,6 +110,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add registration into the form -->
           <label for="registration" class="form-label"
             >Registration Number</label
           >
@@ -113,6 +123,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add cnIn into the form -->
           <label for="cnIn" class="form-label">CnIn</label>
           <input
             type="text"
@@ -123,6 +134,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add passengers aboard into the form -->
           <label for="aboard" class="form-label">Passengers Aboard</label>
           <input
             type="text"
@@ -133,6 +145,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add fatalities into the form -->
           <label for="fatalities" class="form-label">Fatalities</label>
           <input
             type="text"
@@ -143,6 +156,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add ground fatalities into the form -->
           <label for="ground" class="form-label">Ground</label>
           <input
             type="text"
@@ -152,6 +166,7 @@
           />
         </div>
         <div class="mb-3">
+          <!-- label to add crash summary into the form -->
           <label for="summary" class="form-label">Summary</label>
           <textarea
             type="text"

@@ -12,7 +12,7 @@ const aboard = document.getElementById("aboard");
 const fatalities = document.getElementById("fatalities");
 const ground = document.getElementById("ground");
 const summary = document.getElementById("summary");
-
+// function used to create a object for the created crash 
 async function createNewCrash(e) {
   e = e || window.event;
   e.preventDefault();
@@ -37,7 +37,7 @@ async function createNewCrash(e) {
   };
 
   console.log(obj);
-
+// we post the created crash record into the database
   fetch("/crashes", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

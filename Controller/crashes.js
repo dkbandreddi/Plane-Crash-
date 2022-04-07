@@ -16,21 +16,36 @@ async function getCrashCollection() {
   let dbConnection = await db.getDb();
   return await dbConnection.collection("crashes");
 }
-
+/**
+ * A function that gets all years 
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getAllYears = async (req, res) => {
   let crash = await getCrashCollection();
   crash.distinct("year").then((result) => {
     res.send({ years: result });
   });
 };
-
+/**
+ * A function that gets all country names
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getAllCountries = async (req, res) => {
   let crash = await getCrashCollection();
   crash.distinct("country").then((result) => {
     res.send({ country: result });
   });
 };
-
+/**
+ * A function that gets a crash record
+ * from the database by its ID.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getCrashById = async (req, res) => {
   const id = new mongo.ObjectId(req.params.id);
   let crash = await getCrashCollection();
@@ -39,7 +54,12 @@ module.exports.getCrashById = async (req, res) => {
     res.send(doc);
   });
 };
-
+/**
+ * A function that gets a random crash record
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getRandomCrashInfo = async (req, res) => {
   let crash = await getCrashCollection();
 
@@ -53,7 +73,12 @@ module.exports.getRandomCrashInfo = async (req, res) => {
       });
   });
 };
-
+/**
+ * A function that gets yearly crash information
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getYearlyCrashInfo = async (req, res) => {
   let year = req.params.year;
   let crash = await getCrashCollection();
@@ -61,7 +86,12 @@ module.exports.getYearlyCrashInfo = async (req, res) => {
     res.send(arr);
   });
 };
-
+/**
+ * A function that gets the number of crashes in a year
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getCrashesYearCount = async (req, res) => {
   let year = req.params.year;
   let crash = await getCrashCollection();
@@ -73,7 +103,12 @@ module.exports.getCrashesYearCount = async (req, res) => {
       res.send({ number: data.length });
     });
 };
-
+/**
+ * A function that gets number of fatalities in a year
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getFatalitiesYearCount = async (req, res) => {
   let year = req.params.year;
   let crash = await getCrashCollection();
@@ -90,7 +125,12 @@ module.exports.getFatalitiesYearCount = async (req, res) => {
       res.send({ number: fatalities });
     });
 };
-
+/**
+ * A function that gets the latitude and longitude of a given address
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getGeolocation = async (req, res) => {
   let address = req.params.address;
   geodata
@@ -102,7 +142,12 @@ module.exports.getGeolocation = async (req, res) => {
       throw err;
     });
 };
-
+/**
+ * A function that posts information
+ * into the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.postCrashInfo = async (req, res) => {
   let new_crash = new Crashes(req.body);
   var valid = await new_crash.isValid();
@@ -116,7 +161,12 @@ module.exports.postCrashInfo = async (req, res) => {
     res.send("Error. Crash not inserted in the database due to invalid data.");
   }
 };
-
+/**
+ * A function that deletes a crash information according to the registration number
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.deleteCrashInfo = async (req, res) => {
   let reg = req.params.reg;
   let crash = await getCrashCollection();
@@ -134,7 +184,12 @@ module.exports.deleteCrash = async (req, res) => {
     res.send({ msg: "Crash information deleted from the DB" });
   });
 };
-
+/**
+ * A function that updates a crash record information fetched from the
+ * ID associated to the crash record
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.updateCrash = async (req, res) => {
   let new_crash = new Crashes(req.body);
   let id = new mongo.ObjectId(req.params.id);
@@ -152,7 +207,12 @@ module.exports.updateCrash = async (req, res) => {
     res.send("Error. Crash not updated in the database.");
   }
 };
-
+/**
+ * A function that updates a crash record information fetched from the
+ * registration number associated to the crash record
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.updateCrashInfo = async (req, res) => {
   let new_crash = new Crashes(req.body);
   let registration = req.params.reg;
@@ -174,7 +234,12 @@ module.exports.updateCrashInfo = async (req, res) => {
     res.send("Error. Crash not updated in the database.");
   }
 };
-
+/**
+ * A function that aggregates the data according to the country and fetches it
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getCrashesByCountry = async (req, res) => {
   let country = req.params.country.toLowerCase();
   let crash = await getCrashCollection();
@@ -182,7 +247,13 @@ module.exports.getCrashesByCountry = async (req, res) => {
     res.send(arr);
   });
 };
-
+/**
+ * A function that gets a crash record by passing the registration number
+ * associcated with that record
+ *  * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getCrashInfoByRegistration = async (req, res) => {
   let reg = req.params.reg;
   let crash = await getCrashCollection();
@@ -196,6 +267,13 @@ module.exports.getCrashInfoByRegistration = async (req, res) => {
     }
   );
 };
+/**
+ * A function that gets the co-ordinates to plot a bar graph for the
+ * number of fatalities in a year against the remaining years
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 
 module.exports.getYearlyFatalitiesGraph = async (req, res) => {
   let data = [];
@@ -225,7 +303,13 @@ module.exports.getYearlyFatalitiesGraph = async (req, res) => {
     });
   });
 };
-
+/**
+ * A function that gets the co-ordinates to plot a bar graph for the
+ * number of crashes in a year against the remaining years
+ * from the database.
+ * @param {*} req
+ * @param {*} res
+ */
 module.exports.getYearlyCrashesGraph = async (req, res) => {
   let data = [];
   let promises = [];

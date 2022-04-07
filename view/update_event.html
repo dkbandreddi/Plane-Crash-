@@ -1,3 +1,4 @@
+<!-- This HTML page is used to update the crash information -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,12 +27,14 @@
     </div>
     <hr />
     <div class="container p-5 m-5" id="update_div">
+      <!-- when the form is submitted the crash is updated -->
       <form onsubmit="updateCrash()">
         <div class="mb-3">
           <label for="date" class="form-label">Date</label>
           <input type="date" class="form-date form-control" id="date" />
         </div>
         <div class="mb-3">
+          <!-- label to add time into the form -->
           <label for="time" class="form-label">Time</label>
           <input
             type="text"
@@ -41,25 +44,30 @@
           />
         </div>
         <div class="mb-3">
+           <!-- label to add city into the form -->
           <label for="city" class="form-label">City</label>
           <input
             type="text"
             class="form-text form-control"
             id="city"
             placeholder="City"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add country into the form -->
           <label for="country" class="form-label">Country</label>
           <input
             type="text"
             class="form-text form-control"
             id="country"
             placeholder="Country"
+            required
           />
         </div>
 
         <div class="mb-3">
+           <!-- label to add country into the form -->
           <label for="operator" class="form-label">Operator</label>
           <input
             type="text"
@@ -69,33 +77,40 @@
           />
         </div>
         <div class="mb-3">
+           <!-- label to add flightNo into the form -->
           <label for="flightNo" class="form-label">Flight Number</label>
           <input
             type="text"
             class="form-text form-control"
             id="flightNo"
             placeholder="Flight Number"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add route into the form -->
           <label for="route" class="form-label">Route</label>
           <input
             type="text"
             class="form-text form-control"
             id="route"
             placeholder="Route"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add aircraft into the form -->
           <label for="aircraftType" class="form-label">Aircraft Type</label>
           <input
             type="text"
             class="form-text form-control"
             id="aircraftType"
             placeholder="Aircraft Type"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add registration number into the form -->
           <label for="registration" class="form-label"
             >Registration Number</label
           >
@@ -104,9 +119,11 @@
             class="form-text form-control"
             id="registration"
             placeholder="Registration Number"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add cnIn into the form -->
           <label for="cnIn" class="form-label">CnIn</label>
           <input
             type="text"
@@ -116,6 +133,7 @@
           />
         </div>
         <div class="mb-3">
+           <!-- label to add passengers aboard into the form -->
           <label for="aboard" class="form-label">Passengers Aboard</label>
           <input
             type="text"
@@ -125,24 +143,29 @@
           />
         </div>
         <div class="mb-3">
+           <!-- label to add fatalities into the form -->
           <label for="fatalities" class="form-label">Fatalities</label>
           <input
             type="text"
             class="form-text form-control"
             id="fatalities"
             placeholder="Fatalities"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add ground fatalities into the form -->
           <label for="ground" class="form-label">Ground</label>
           <input
             type="text"
             class="form-text form-control"
             id="ground"
             placeholder="Ground"
+            required
           />
         </div>
         <div class="mb-3">
+           <!-- label to add summary into the form -->
           <label for="summary" class="form-label">Summary</label>
           <textarea
             type="text"

@@ -16,7 +16,7 @@ const fatalities = document.getElementById("fatalities");
 const ground = document.getElementById("ground");
 const summary = document.getElementById("summary");
 const cnIn = document.getElementById("cnIn");
-
+// we fetch the following api endpoint to retreive the crash record based on the id and add the information into the form
 fetch(`/crashes/${crash_id}`)
   .then((response) => response.json())
   .then((crash) => {
@@ -36,7 +36,7 @@ fetch(`/crashes/${crash_id}`)
     summary.value = crash.summary;
     cnIn.value = crash.cnIn;
   });
-
+// function used to create a object for the updated crash 
 async function updateCrash(e) {
   e = e || window.event;
   e.preventDefault();
@@ -59,7 +59,7 @@ async function updateCrash(e) {
     ground: ground.value,
     summary: summary.value,
   };
-
+// we update the crash record into the database.
   fetch(`/crashes/${crash_id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

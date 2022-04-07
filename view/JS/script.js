@@ -1,7 +1,7 @@
 const years_div = document.getElementById("years");
 const country_div = document.getElementById("countries")
 const crashes = document.getElementById("crashes");
-
+// we fetch the api endpoint to get the distinct years and add them into the years_div element.
 fetch("/crashes/years")
   .then((response) => response.json())
   .then((data) => {
@@ -16,6 +16,7 @@ fetch("/crashes/years")
       years_div.appendChild(a);
     });
   });
+  // we fetch the api endpoint to get the distinct countries and add them into the country_div element.
   fetch("/crashes/countries")
   .then((response) => response.json())
   .then((data) => {
@@ -45,7 +46,7 @@ table.append(thead);
 table.append(tbody);
 table.setAttribute("class", "table table-dark");
 crashes.append(table);
-
+// This function is used to get data from the database aggregated by year.
 async function getYearInfo(e) {
   e = e || window.event;
   const clicked_year = e.target.text;
@@ -77,6 +78,7 @@ async function getYearInfo(e) {
       });
     });
 }
+// This function is used to get data from the database aggregated by country.
 async function getCountryInfo(e) {
   e = e || window.event;
   const clicked_year = e.target.text;
@@ -114,7 +116,7 @@ async function getCrashInfo(e) {
   const crash_id = e.target.id;
   window.open(`http://localhost:8080/crash?id=${crash_id}`, "_blank").focus();
 }
-
+// we fetch the api endpoint to get the x and y cor-ordinates to construct the yearly fatalities graph .
 fetch("/crashes/graph/yearly-fatalities-graph").then((response) => {
   response.json().then((data) => {
     const x = data.plot[0].x;
@@ -129,7 +131,7 @@ fetch("/crashes/graph/yearly-fatalities-graph").then((response) => {
     Plotly.newPlot("fatalities-plot", graph);
   });
 });
-
+// we fetch the api endpoint to get the x and y cor-ordinates to construct the yearly crashes graph .
 fetch("/crashes/graph/yearly-crashes-graph").then((response) => {
   response.json().then((data) => {
     const x = data.plot[0].x;
