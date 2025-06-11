@@ -5,177 +5,188 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap CDN-->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-    <title>Plane Crash</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Create New Crash Event</title>
   </head>
-  <body>
-    <div class="container">
-      <h1 class="display-3 pt-5 text-center">
-        Plane Crash Information Database
-      </h1>
-    </div>
-    <hr />
-    <div class="container p-5 m-5" id="crash">
-      <!-- when the form is submitted it is redirected to createnewcrash() -->
-      <form onsubmit="createNewCrash()">
-        <div class="mb-3">
-          <label for="date" class="form-label">Date</label>
-          <input type="date" class="form-date form-control" id="date" required/>
+  <body class="bg-gray-100 text-gray-800">
+    <nav class="bg-gray-800 text-white p-4 shadow-md">
+      <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center">
+        <a href="./index.html" class="text-xl font-bold hover:text-gray-300">PlaneCrash DB</a>
+        <div class="space-x-4 mt-2 sm:mt-0">
+          <a href="./index.html" class="hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+          <a href="./create_event.html" class="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-md text-sm font-medium">New Crash</a>
         </div>
-        <div class="mb-3">
-          <!-- label to add time into the form -->
-          <label for="time" class="form-label">Time</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="time"
-            placeholder="HH:MM"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add city into the form -->
-          <label for="city" class="form-label">City</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="city"
-            placeholder="City"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add country into the form -->
-          <label for="country" class="form-label">Country</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="country"
-            placeholder="Country"
-          />
-        </div>
+      </div>
+    </nav>
 
-        <div class="mb-3">
-          <!-- label to add operator into the form -->
-          <label for="operator" class="form-label">Operator</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="operator"
-            placeholder="Operator"
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add flight number into the form -->
-          <label for="flightNo" class="form-label">Flight Number</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="flightNo"
-            placeholder="Flight Number"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add route into the form -->
-          <label for="route" class="form-label">Route</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="route"
-            placeholder="Route"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add aircraft type into the form -->
-          <label for="aircraftType" class="form-label">Aircraft Type</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="aircraftType"
-            placeholder="Aircraft Type"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add registration into the form -->
-          <label for="registration" class="form-label"
-            >Registration Number</label
-          >
-          <input
-            type="text"
-            class="form-text form-control"
-            id="registration"
-            placeholder="Registration Number"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add cnIn into the form -->
-          <label for="cnIn" class="form-label">CnIn</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="cnIn"
-            placeholder="CnIn"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add passengers aboard into the form -->
-          <label for="aboard" class="form-label">Passengers Aboard</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="aboard"
-            placeholder="Aboard"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add fatalities into the form -->
-          <label for="fatalities" class="form-label">Fatalities</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="fatalities"
-            placeholder="Fatalities"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add ground fatalities into the form -->
-          <label for="ground" class="form-label">Ground</label>
-          <input
-            type="text"
-            class="form-text form-control"
-            id="ground"
-            placeholder="Ground"
-          />
-        </div>
-        <div class="mb-3">
-          <!-- label to add crash summary into the form -->
-          <label for="summary" class="form-label">Summary</label>
-          <textarea
-            type="text"
-            class="form-text form-control"
-            id="summary"
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-      </form>
+    <div class="max-w-2xl mx-auto p-4 sm:p-6 lg:p-8 pt-6">
+      <%/* <div class="flex justify-start mb-6"> */%>
+        <%/* <a href="./index.html" class="text-blue-500 hover:text-blue-700 hover:underline">&larr; Back to List</a> */%>
+      <%/* </div> */%>
+      <h1 class="text-3xl sm:text-4xl font-bold pb-6 text-center text-gray-900">
+        Log New Crash Event
+      </h1>
+
+      <div class="bg-white shadow-xl rounded-lg p-6 sm:p-8" id="crash">
+        <form onsubmit="createNewCrash()">
+          <div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-6">
+            <div>
+              <label for="date" class="block text-sm font-medium text-gray-700 mb-1">Date of Event</label>
+              <input type="date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" id="date" required/>
+            </div>
+            <div class="mt-6 md:mt-0">
+              <label for="time" class="block text-sm font-medium text-gray-700 mb-1">Time of Event (24-hour format)</label>
+              <input
+                type="time"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="time"
+                placeholder="HH:MM (e.g., 14:30)"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 md:gap-x-6">
+            <div>
+              <label for="city" class="block text-sm font-medium text-gray-700 mb-1">City of Event Location</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="city"
+                placeholder="e.g., Springfield"
+                required
+              />
+            </div>
+            <div class="mt-6 md:mt-0">
+              <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country of Event Location</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="country"
+                placeholder="e.g., United States"
+              />
+            </div>
+          </div>
+
+          <hr class="my-8 border-gray-300">
+
+          <div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-6">
+            <div>
+              <label for="operator" class="block text-sm font-medium text-gray-700 mb-1">Airline/Operator</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="operator"
+                placeholder="e.g., Acme Airlines"
+              />
+            </div>
+            <div class="mt-6 md:mt-0">
+              <label for="flightNo" class="block text-sm font-medium text-gray-700 mb-1">Flight Number (if applicable)</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="flightNo"
+                placeholder="e.g., AA123"
+                required
+              />
+            </div>
+            <div class="mt-6">
+              <label for="route" class="block text-sm font-medium text-gray-700 mb-1">Intended Route (e.g., City A to City B)</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="route"
+                placeholder="e.g., New York to London"
+                required
+              />
+            </div>
+            <div class="mt-6">
+              <label for="aircraftType" class="block text-sm font-medium text-gray-700 mb-1">Type of Aircraft</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="aircraftType"
+                placeholder="e.g., Boeing 737"
+                required
+              />
+            </div>
+            <div class="mt-6">
+              <label for="registration" class="block text-sm font-medium text-gray-700 mb-1">Aircraft Registration (Tail Number)</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="registration"
+                placeholder="e.g., N12345"
+                required
+              />
+            </div>
+            <div class="mt-6">
+              <label for="cnIn" class="block text-sm font-medium text-gray-700 mb-1">Construction/Serial Number (cn/ln)</label>
+              <input
+                type="text"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="cnIn"
+                placeholder="e.g., 12345/6789"
+                required
+              />
+            </div>
+          </div>
+
+          <hr class="my-8 border-gray-300">
+
+          <div class="grid grid-cols-1 md:grid-cols-3 md:gap-x-6">
+            <div>
+              <label for="aboard" class="block text-sm font-medium text-gray-700 mb-1">Total Aboard (Passengers & Crew)</label>
+              <input
+                type="number" min="0"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="aboard"
+                placeholder="e.g., 150"
+                required
+              />
+            </div>
+            <div class="mt-6 md:mt-0">
+              <label for="fatalities" class="block text-sm font-medium text-gray-700 mb-1">Total Fatalities (Aboard)</label>
+              <input
+                type="number" min="0"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="fatalities"
+                placeholder="e.g., 10"
+                required
+              />
+            </div>
+            <div class="mt-6 md:mt-0">
+              <label for="ground" class="block text-sm font-medium text-gray-700 mb-1">Ground Casualties</label>
+              <input
+                type="number" min="0"
+                class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                id="ground"
+                placeholder="e.g., 0"
+              />
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <label for="summary" class="block text-sm font-medium text-gray-700 mb-1">Narrative Summary of Event</label>
+            <textarea
+              rows="5"
+              class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              id="summary"
+              placeholder="Provide a brief narrative of the event, conditions, and findings..."
+            ></textarea>
+          </div>
+
+          <div class="mt-8 flex justify-end space-x-4">
+            <a href="./index.html" class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+              Cancel
+            </a>
+            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out">
+              Create Event
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
   <!--Custom Javascript-->
